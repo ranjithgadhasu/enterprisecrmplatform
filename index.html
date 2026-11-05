@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#f3efe6" />
+    <meta
+      name="description"
+      content="Northline is a revenue desk for pipeline, customers, and the week ahead."
+    />
+    <title>Enterprise CRM Platform</title>
+    <link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,620;1,9..144,520&family=Outfit:wght@340;420;520;600&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      try {
+        var raw = localStorage.getItem("northline.crm.v1");
+        var theme = raw && JSON.parse(raw).state.settings.appearance.theme;
+        if (theme === "dark") document.documentElement.classList.add("dark");
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

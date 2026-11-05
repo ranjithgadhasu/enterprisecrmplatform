@@ -1,0 +1,280 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --paper: #f3efe6;
+  --paper-deep: #e7e0d3;
+  --card: #fffdf8;
+  --ink: #1c1712;
+  --muted: #7c7368;
+  --line: #e4dcd0;
+  --copper: #c6532a;
+  --copper-deep: #9a3e1c;
+  --forest: #1d6848;
+  --moss: #5f7d64;
+  --gold: #a8843d;
+  --gold-ink: #8a6824;
+  --wine: #8f3148;
+  --cream: #f6f1e8;
+  --sidebar: #14110e;
+  --shadow: 0 1px 2px rgba(28, 23, 18, 0.04), 0 18px 40px rgba(28, 23, 18, 0.06);
+  color-scheme: light;
+}
+
+.dark {
+  --paper: #110f0d;
+  --paper-deep: #1c1916;
+  --card: #1b1815;
+  --ink: #f6f1e8;
+  --muted: #b3a89c;
+  --line: #322c26;
+  --copper: #e08a5a;
+  --copper-deep: #c46a3a;
+  --forest: #7dcaa4;
+  --moss: #a7c2ab;
+  --gold: #e0c07a;
+  --gold-ink: #e6cb90;
+  --wine: #f0a3b4;
+  --cream: #f6f1e8;
+  --sidebar: #0c0b0a;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 18px 40px rgba(0, 0, 0, 0.32);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-copper: var(--copper);
+  --color-copper-deep: var(--copper-deep);
+  --color-forest: var(--forest);
+  --color-moss: var(--moss);
+  --color-gold: var(--gold);
+  --color-gold-ink: var(--gold-ink);
+  --color-wine: var(--wine);
+  --color-cream: var(--cream);
+  --color-sidebar: var(--sidebar);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+::selection {
+  background: rgba(198, 83, 42, 0.22);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d5cdc0;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 99px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #3a342e;
+  background-clip: padding-box;
+}
+
+.font-display {
+  font-family: "Fraunces", "Iowan Old Style", Georgia, serif;
+}
+
+.desk-bg {
+  background:
+    radial-gradient(900px 420px at 100% -10%, rgba(198, 83, 42, 0.08), transparent 50%),
+    radial-gradient(700px 380px at -8% 18%, rgba(29, 104, 72, 0.06), transparent 46%),
+    var(--paper);
+}
+
+.sidebar-bg {
+  background:
+    radial-gradient(520px 280px at 0% 0%, rgba(198, 83, 42, 0.22), transparent 55%),
+    linear-gradient(180deg, #1b1714 0%, #100e0c 100%);
+}
+
+.card-shadow {
+  box-shadow: var(--shadow);
+}
+
+.nav-idle {
+  color: rgba(246, 241, 232, 0.62);
+}
+
+.nav-idle:hover {
+  color: #f6f1e8;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-active {
+  color: #f6f1e8;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+html[data-density="compact"] .table-cell {
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+}
+
+.tone-copper { background: color-mix(in srgb, var(--copper) 14%, transparent); color: var(--copper); }
+.tone-gold { background: color-mix(in srgb, var(--gold) 18%, transparent); color: var(--gold-ink); }
+.tone-forest { background: color-mix(in srgb, var(--forest) 14%, transparent); color: var(--forest); }
+.tone-moss { background: color-mix(in srgb, var(--moss) 18%, transparent); color: var(--forest); }
+.tone-wine { background: color-mix(in srgb, var(--wine) 14%, transparent); color: var(--wine); }
+.tone-muted { background: var(--paper-deep); color: var(--muted); }
+.tone-ink { background: var(--ink); color: var(--cream); }
+
+.field {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0.65rem 0.9rem;
+  font-size: 0.925rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field:focus {
+  border-color: var(--copper);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--copper) 18%, transparent);
+}
+
+.field-error {
+  border-color: var(--wine);
+}
+
+/* Horizontal chip rows: swipe on phones, wrap on larger screens */
+.pill-row {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  margin-inline: -1rem;
+  padding-inline: 1rem;
+  padding-bottom: 0.25rem;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pill-row::-webkit-scrollbar {
+  display: none;
+}
+
+.pill-row > * {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .pill-row {
+    flex-wrap: wrap;
+    overflow: visible;
+    margin-inline: 0;
+    padding-inline: 0;
+    padding-bottom: 0;
+  }
+}
+
+/* Swipeable board on phones */
+.board-scroll {
+  position: relative; /* keeps absolutely-positioned children (sr-only labels) inside the scroller */
+  display: flex;
+  gap: 0.875rem;
+  overflow-x: auto;
+  margin-inline: -1rem;
+  padding: 0 1rem 1rem;
+  scroll-padding-inline: 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.board-scroll > * {
+  scroll-snap-align: start;
+}
+
+@media (min-width: 640px) {
+  .board-scroll {
+    gap: 1rem;
+    margin-inline: 0;
+    padding-inline: 0;
+    scroll-snap-type: none;
+  }
+}
+
+/* iOS Safari zooms the page when a focused field is under 16px */
+@media (max-width: 639px) {
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+/* Respect the notch and home indicator inside sheets */
+.sheet-safe {
+  padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+}
+
+.sort-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
+  }
+}
